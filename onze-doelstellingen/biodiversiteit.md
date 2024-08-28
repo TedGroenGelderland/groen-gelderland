@@ -1,6 +1,6 @@
 ---
 title: Biodiversiteit
-image: biodiversity.jpg
+image: biodiversiteit-img.jpg
 link: https://www.wur.nl/nl/onderzoek-resultaten/onderzoeksinstituten/environmental-research/programmas/biodiversiteit.htm
 footer1: Wageningen
 footer2: Environmental Research
