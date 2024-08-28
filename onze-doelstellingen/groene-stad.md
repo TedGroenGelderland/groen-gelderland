@@ -1,6 +1,6 @@
 ---
 title: De groene stad
-image: green-city.jpg
+image: groene-stad-img.jpg
 link: https://www.wur.nl/nl/onderzoek-resultaten/onderzoeksinstituten/environmental-research/programmas/de-groene-stad-3.htm
 footer1: Wageningen
 footer2: Environmental Research
