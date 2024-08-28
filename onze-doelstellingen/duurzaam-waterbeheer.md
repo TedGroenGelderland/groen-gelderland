@@ -1,6 +1,6 @@
 ---
 title: Duurzaam waterbeheer
-image: water-management.jpg
+image: duurzaam-waterbeheer-img.jpg
 link: https://www.wur.nl/nl/onderzoek-resultaten/onderzoeksinstituten/environmental-research/programmas/duurzaam-waterbeheer.htm
 footer1: Wageningen
 footer2: Environmental Research
