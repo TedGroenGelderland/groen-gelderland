@@ -13,8 +13,14 @@ jobs:
           node-version: '14'
       - name: Run timestamp update script
         run: |
-          # Get the list of modified or created markdown files in the current commit
-          changed_files=$(git diff --name-only --diff-filter=ACM HEAD~1 HEAD -- '*.md')
+          # Check if this is the first commit
+          if [ $(git rev-list --count HEAD) -eq 1 ]; then
+            # Get the list of markdown files in the first commit
+            changed_files=$(git ls-files '*.md')
+          else
+            # Get the list of modified or created markdown files in the current commit
+            changed_files=$(git diff --name-only --diff-filter=ACM HEAD~1 HEAD -- '*.md')
+          fi
 
           # Check if there are any markdown files changed
           if [ -z "$changed_files" ]; then
