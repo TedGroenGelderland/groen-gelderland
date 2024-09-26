@@ -18,14 +18,18 @@ jobs:
           md_files=$(git ls-files '*.md')
 
           for file in $md_files; do
+            echo "Processing file: $file"
+
+            # Check if 'createdAt' does not exist, then add it without extra space
             if ! grep -q "^createdAt:" "$file"; then
-              sed -i "0,/^---$/!b;//a\createdAt: $current_date" "$file"
+              sed -i "0,/^---$/!b;//a\\createdAt: $current_date" "$file"
             fi
 
+            # If 'modifiedAt' exists, update it; otherwise, add it without extra space
             if grep -q "^modifiedAt:" "$file"; then
               sed -i "s/^modifiedAt:.*/modifiedAt: $current_date/" "$file"
             else
-              sed -i "0,/^createdAt:.*/!b;//a\modifiedAt: $current_date" "$file"
+              sed -i "0,/^createdAt:.*/!b;//a\\modifiedAt: $current_date" "$file"
             fi
           done
 
