@@ -1,4 +1,5 @@
 ---
+ createdAt: 2024-09-26 14:58:11
 title: Kunstmatige intelligentie
 image: priorities-kunstmatige-intelligentie.jpg
 link: https://www.wur.nl/nl/onderzoek-resultaten/themas/kunstmatige-intelligentie.htm
