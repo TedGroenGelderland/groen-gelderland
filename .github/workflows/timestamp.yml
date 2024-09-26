@@ -1,0 +1,31 @@
+name: Update Timestamps
+
+on: [push]
+
+jobs:
+  update-timestamps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Run timestamp update script
+        run: |
+          # Update timestamps in markdown files
+          current_date=$(date "+%Y-%m-%d %H:%M:%S")
+          md_files=$(git ls-files '*.md')
+
+          for file in $md_files; do
+            if ! grep -q "^createdAt:" "$file"; then
+              sed -i "0,/^---$/!b;//a\\
+              createdAt: $current_date" "$file" fi
+           if grep -q "^modifiedAt:" "$file"; then
+             sed -i "s/^modifiedAt:.*/modifiedAt: $current_date/" "$file"
+           else
+             sed -i "0,/^createdAt:.*/!b;//a\\
+             modifiedAt: $current_date" "$file" 
+          fi done
+
+
