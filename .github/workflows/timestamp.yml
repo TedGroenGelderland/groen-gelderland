@@ -19,13 +19,13 @@ jobs:
 
           for file in $md_files; do
             if ! grep -q "^createdAt:" "$file"; then
-              sed -i "0,/^---$/!b;//a\ createdAt: $current_date" "$file"
+              sed -i "0,/^---$/!b;//a\createdAt: $current_date" "$file"
             fi
 
             if grep -q "^modifiedAt:" "$file"; then
               sed -i "s/^modifiedAt:.*/modifiedAt: $current_date/" "$file"
             else
-              sed -i "0,/^createdAt:.*/!b;//a\ modifiedAt: $current_date" "$file"
+              sed -i "0,/^createdAt:.*/!b;//a\modifiedAt: $current_date" "$file"
             fi
           done
 
