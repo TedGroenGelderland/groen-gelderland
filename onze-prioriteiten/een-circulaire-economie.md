@@ -1,6 +1,6 @@
 ---
 createdAt: 2024-09-26 15:10:39
-modifiedAt: 2024-09-26 15:21:51
+modifiedAt: 2024-09-26 15:36:22
 title: Een circulaire economie
 image: een-circulaire-economie.jpg
 link: https://www.wur.nl/nl/onderzoek-resultaten/themas/een-circulaire-economie.htm

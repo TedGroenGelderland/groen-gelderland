@@ -1,6 +1,6 @@
 ---
 createdAt: 2024-09-26 15:10:39
-modifiedAt: 2024-09-26 15:21:51
+modifiedAt: 2024-09-26 15:36:22
 title: Klimaatverandering
 image: priorities-klimaatverandering.jpg
 link: https://www.wur.nl/nl/onderzoek-resultaten/themas/klimaatverandering.htm
