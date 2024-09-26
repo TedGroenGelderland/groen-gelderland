@@ -1,9 +1,6 @@
 ---
 createdAt: 2024-09-26 15:10:39
 modifiedAt: 2024-09-26 15:21:51
- createdAt: 2024-09-26 15:01:21
- createdAt: 2024-09-26 15:00:13
- createdAt: 2024-09-26 14:58:11
 title: De wereld voeden
 image: priorities-de-wereld-voeden.jpg
 link: https://www.wur.nl/nl/onderzoek-resultaten/themas/van-honger-naar-voedselzekerheid.htm

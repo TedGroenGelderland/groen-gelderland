@@ -13,19 +13,28 @@ jobs:
           node-version: '14'
       - name: Run timestamp update script
         run: |
-          # Update timestamps in markdown files
-          current_date=$(date "+%Y-%m-%d %H:%M:%S")
-          md_files=$(git ls-files '*.md')
+          # Get the list of modified or created markdown files in the current commit
+          changed_files=$(git diff --name-only --diff-filter=ACM HEAD~1 HEAD -- '*.md')
 
-          for file in $md_files; do
+          # Check if there are any markdown files changed
+          if [ -z "$changed_files" ]; then
+            echo "No markdown files were modified or created in this commit."
+            exit 0
+          fi
+
+          # Get the current date and time
+          current_date=$(date "+%Y-%m-%d %H:%M:%S")
+
+          # Process each changed markdown file
+          for file in $changed_files; do
             echo "Processing file: $file"
 
-            # Check if 'createdAt' does not exist, then add it without extra space
+            # Check if 'createdAt' does not exist, then add it
             if ! grep -q "^createdAt:" "$file"; then
               sed -i "0,/^---$/!b;//a\\createdAt: $current_date" "$file"
             fi
 
-            # If 'modifiedAt' exists, update it; otherwise, add it without extra space
+            # If 'modifiedAt' exists, update it; otherwise, add it
             if grep -q "^modifiedAt:" "$file"; then
               sed -i "s/^modifiedAt:.*/modifiedAt: $current_date/" "$file"
             else
