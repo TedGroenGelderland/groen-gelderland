@@ -25,7 +25,6 @@ jobs:
              sed -i "s/^modifiedAt:.*/modifiedAt: $current_date/" "$file"
            else
              sed -i "0,/^createdAt:.*/!b;//a\\
-             modifiedAt: $current_date" "$file" 
-          fi done
+             modifiedAt: $current_date" "$file" fi done
 
 
