@@ -19,17 +19,20 @@ jobs:
         python-version: '3.x'
 
     - name: Install dependencies
-      run: pip install PyYAML
+      run: |
+        python -m pip install --upgrade pip
+        pip install PyYAML gitpython
 
     - name: Update timestamps
       run: |
+        cat << EOT > update_timestamps.py
         import os
         import yaml
         from datetime import datetime
         import git
 
         repo = git.Repo('.')
-        
+
         for root, dirs, files in os.walk('recente-artikelen'):
             for file in files:
                 if file.endswith('.md'):
@@ -39,25 +42,38 @@ jobs:
                     created_at = repo.git.log('--diff-filter=A', '--format=%aI', '-1', '--', file_path)
                     updated_at = repo.git.log('--format=%aI', '-1', '--', file_path)
                     
-                    with open(file_path, 'r') as f:
+                    with open(file_path, 'r', encoding='utf-8') as f:
                         content = f.read()
                     
                     # Split the content into frontmatter and body
-                    frontmatter, body = content.split('---', 2)[1:]
+                    parts = content.split('---', 2)
+                    if len(parts) < 3:
+                        print(f"Skipping {file_path}: Invalid format")
+                        continue
+                    
+                    frontmatter, body = parts[1:]
                     
                     # Parse the frontmatter
-                    metadata = yaml.safe_load(frontmatter)
+                    try:
+                        metadata = yaml.safe_load(frontmatter)
+                    except yaml.YAMLError as e:
+                        print(f"Error parsing YAML in {file_path}: {e}")
+                        continue
                     
                     # Update the timestamps
                     metadata['createdAt'] = created_at.strip() if created_at else datetime.now().isoformat()
                     metadata['updatedAt'] = updated_at.strip() if updated_at else datetime.now().isoformat()
                     
                     # Write the updated content back to the file
-                    with open(file_path, 'w') as f:
+                    with open(file_path, 'w', encoding='utf-8') as f:
                         f.write('---\n')
                         yaml.dump(metadata, f, allow_unicode=True, sort_keys=False)
                         f.write('---\n')
                         f.write(body)
+                    
+                    print(f"Updated {file_path}")
+        EOT
+        python update_timestamps.py
 
     - name: Commit changes
       run: |

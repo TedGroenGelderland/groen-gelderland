@@ -23,3 +23,4 @@ Klimaatverandering zal het neerslagpatroon veranderen, waardoor er periodes van 
 Ecologie van het beekdal
 Daarnaast is ook de ecologie van het gebied erg belangrijk. Zo helpen insecten een grote rol bij de afbraak van organisch materiaal in het water. Om de biodiversiteit in het beekdal te vergroten is hermeandering belangrijk. Door hermeandering ontstaat een divers landschap, dat aantrekkelijker is voor dier- en plantensoorten. Het introduceren van dood hout in de beek is goede manier om de stromingsvariatie en de heterogeniteit van de beek te verhogen, wat de biodiversiteit ook ten goede komt en het beekdal aantrekkelijker maakt.
 
+test it for a prepush
