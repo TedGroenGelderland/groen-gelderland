@@ -9,5 +9,4 @@ updatedAt: '2024-10-01T12:48:26+03:00'
 
 This is to test github action
 
-
-
+testing the updatedAt correctness
