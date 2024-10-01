@@ -1,0 +1,68 @@
+name: Update Markdown Timestamps
+
+on:
+  push:
+    paths:
+      - 'recente-artikelen/**/*.md'
+
+jobs:
+  update-timestamps:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install PyYAML
+
+    - name: Update timestamps
+      run: |
+        import os
+        import yaml
+        from datetime import datetime
+        import git
+
+        repo = git.Repo('.')
+        
+        for root, dirs, files in os.walk('recente-artikelen'):
+            for file in files:
+                if file.endswith('.md'):
+                    file_path = os.path.join(root, file)
+                    
+                    # Get file creation and modification times from git history
+                    created_at = repo.git.log('--diff-filter=A', '--format=%aI', '-1', '--', file_path)
+                    updated_at = repo.git.log('--format=%aI', '-1', '--', file_path)
+                    
+                    with open(file_path, 'r') as f:
+                        content = f.read()
+                    
+                    # Split the content into frontmatter and body
+                    frontmatter, body = content.split('---', 2)[1:]
+                    
+                    # Parse the frontmatter
+                    metadata = yaml.safe_load(frontmatter)
+                    
+                    # Update the timestamps
+                    metadata['createdAt'] = created_at.strip() if created_at else datetime.now().isoformat()
+                    metadata['updatedAt'] = updated_at.strip() if updated_at else datetime.now().isoformat()
+                    
+                    # Write the updated content back to the file
+                    with open(file_path, 'w') as f:
+                        f.write('---\n')
+                        yaml.dump(metadata, f, allow_unicode=True, sort_keys=False)
+                        f.write('---\n')
+                        f.write(body)
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add recente-artikelen
+        git commit -m "Update timestamps in Markdown files" || echo "No changes to commit"
+        git push

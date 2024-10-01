@@ -1,6 +1,4 @@
 ---
-createdAt: 2024-09-26 15:10:39
-modifiedAt: 2024-09-26 15:36:22
 title: Gezonde voeding, gezond leven
 image: priorities-gezonde-voeding-gezond-levenn.jpg
 link: https://www.wur.nl/nl/onderzoek-resultaten/themas/gezonde-veilige-voeding.htm

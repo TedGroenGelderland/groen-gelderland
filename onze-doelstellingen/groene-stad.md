@@ -1,6 +1,4 @@
 ---
-createdAt: 2024-09-26 15:10:39
-modifiedAt: 2024-09-26 15:36:22
 title: De groene stad
 image: groene-stad-img.jpg
 link: https://www.wur.nl/nl/onderzoek-resultaten/onderzoeksinstituten/environmental-research/programmas/de-groene-stad-3.htm
