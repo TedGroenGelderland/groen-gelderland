@@ -33,48 +33,46 @@ jobs:
 
         repo = git.Repo('.')
 
-        for root, dirs, files in os.walk('recente-artikelen'):
-            for file in files:
-                if file.endswith('.md'):
-                    file_path = os.path.join(root, file)
-                    
-                    # Get file creation and last modification times from git history
-                    created_at = repo.git.log('--diff-filter=A', '--format=%aI', '-1', '--', file_path)
-                    last_commit = repo.git.log('--format=%aI', '-1', '--', file_path)
-                    
-                    with open(file_path, 'r', encoding='utf-8') as f:
-                        content = f.read()
-                    
-                    # Split the content into frontmatter and body
-                    parts = content.split('---', 2)
-                    if len(parts) < 3:
-                        print(f"Skipping {file_path}: Invalid format")
-                        continue
-                    
-                    frontmatter, body = parts[1:]
-                    
-                    # Parse the frontmatter
-                    try:
-                        metadata = yaml.safe_load(frontmatter)
-                    except yaml.YAMLError as e:
-                        print(f"Error parsing YAML in {file_path}: {e}")
-                        continue
-                    
-                    # Update the timestamps
+        # Get the list of modified files in the last commit
+        modified_files = repo.git.diff('HEAD~1..HEAD', name_only=True).split()
+
+        for file_path in modified_files:
+            if file_path.startswith('recente-artikelen/') and file_path.endswith('.md'):
+                # Get file creation time from git history
+                created_at = repo.git.log('--diff-filter=A', '--format=%aI', '-1', '--', file_path)
+                
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # Split the content into frontmatter and body
+                parts = content.split('---', 2)
+                if len(parts) < 3:
+                    print(f"Skipping {file_path}: Invalid format")
+                    continue
+                
+                frontmatter, body = parts[1:]
+                
+                # Parse the frontmatter
+                try:
+                    metadata = yaml.safe_load(frontmatter)
+                except yaml.YAMLError as e:
+                    print(f"Error parsing YAML in {file_path}: {e}")
+                    continue
+                
+                # Update the timestamps
+                if 'createdAt' not in metadata:
                     metadata['createdAt'] = created_at.strip() if created_at else datetime.now().isoformat()
-                    
-                    # Only update 'updatedAt' if it's different from the last commit time
-                    if 'updatedAt' not in metadata or metadata['updatedAt'] != last_commit.strip():
-                        metadata['updatedAt'] = last_commit.strip()
-                    
-                    # Write the updated content back to the file
-                    with open(file_path, 'w', encoding='utf-8') as f:
-                        f.write('---\n')
-                        yaml.dump(metadata, f, allow_unicode=True, sort_keys=False)
-                        f.write('---\n')
-                        f.write(body.lstrip())  # Remove leading newlines from the body
-                    
-                    print(f"Updated {file_path}")
+                
+                metadata['updatedAt'] = datetime.now().isoformat()
+                
+                # Write the updated content back to the file
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write('---\n')
+                    yaml.dump(metadata, f, allow_unicode=True, sort_keys=False)
+                    f.write('---\n')
+                    f.write(body.lstrip())  # Remove leading newlines from the body
+                
+                print(f"Updated {file_path}")
         EOT
         python update_timestamps.py
 
