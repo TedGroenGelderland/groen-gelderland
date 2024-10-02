@@ -5,6 +5,8 @@ author: dr. RCM (Ralf) Verdonschot
 createdAt: '2024-09-26T10:55:24Z'
 updatedAt: '2024-10-02T17:38:51Z'
 ---
+### In heel West-Europa zijn beken de afgelopen eeuw rechtgetrokken, vastgelegd, gestuwd en aangepast aan een zo groot en snel mogelijke afvoer van water. Samen met waterverontreiniging heeft dit geleid tot een sterke afname in de ecologische kwaliteit van beken. Wageningen University & Research doet onderzoek aan beken en beekdalen en geeft advies over het beheer en de inrichting ervan.
+
 Beekdalen worden gekenmerkt door een beekdalvlakte ingesloten tussen hogere gronden met daartussen een beekbedding en oeverwallen. De oeverwallen bestaan uit sediment dat wordt afgezet als de beek buiten zijn oevers treedt. Vaak zijn er naast de actieve beekbedding ook andere wateroppervlakten in het dal aanwezig.
 
 In de vorige eeuw werden beken rechtgetrokken om de afvoercapaciteit te verhogen en daarmee de kans op  [wateroverlast](https://www.wur.nl/nl/onderzoek-resultaten/dossiers/dossier/wateroverlast.htm "Wateroverlast")  te verkleinen. Inmiddels blijkt dat beken te diep in het landschap snijden, waardoor ze het omliggende landschap verdrogen en het water te snel afvoeren. Hierdoor vindt er bovenstrooms verdroging plaats en verdwijnen typische planten en dieren. Deze ontwikkelingen worden tegengegaan door middel van  [geomorfologisch beekherstel](https://www.stowa.nl/publicaties/handboek-geomorfologisch-beekherstel-herziene-uitgave "https://www.stowa.nl/publicaties/handboek-geomorfologisch-beekherstel-herziene-uitgave").
