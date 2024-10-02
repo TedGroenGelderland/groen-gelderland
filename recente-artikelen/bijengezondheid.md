@@ -2,9 +2,10 @@
 title: Bijengezondheid
 image: bijengezondheid.jpg
 author: prof.dr.ir. D (David) Kleijn
-createdAt: '2024-09-26T18:10:22+03:00'
-updatedAt: '2024-10-01T10:04:16Z'
+createdAt: '2024-10-02T19:23:17+03:00'
+updatedAt: '2024-10-02T19:23:17+03:00'
 ---
+
 
 ### Onderzoekers van Wageningen University & Research bekijken welke factoren van belang zijn voor de gezondheid van bijen en andere bestuivende insecten. De honingbij is samen met andere bijen en hommels belangrijk voor de bestuiving van voedselgewassen. Daarom is een goede bijengezondheid essentieel.
 
