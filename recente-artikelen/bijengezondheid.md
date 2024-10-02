@@ -5,7 +5,7 @@ author: prof.dr.ir. D (David) Kleijn
 createdAt: '2024-10-02T19:23:17+03:00'
 updatedAt: '2024-10-02T16:39:30Z'
 ---
-### Onderzoekers van Wageningen University & Research bekijken welke factoren van belang zijn voor de gezondheid van bijen en andere bestuivende insecten. De honingbij is samen met andere bijen en hommels belangrijk voor de bestuiving van voedselgewassen. Daarom is een goede bijengezondheid essentieel.
+
 
 [Bijen@wur](https://www.wur.nl/nl/onderzoek-resultaten/onderzoeksinstituten/plant-research/business-units/biointeracties-plantgezondheid/bijen.htm "Bijen")  is gespecialiseerd in bijengezondheid en de bestuiving door honingbijen en andere bestuivende insecten zoals hommels en solitaire bijen.
 
