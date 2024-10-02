@@ -21,23 +21,24 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install PyYAML gitpython pytz
+        pip install PyYAML gitpython
 
     - name: Update timestamps
       run: |
         cat << EOT > update_timestamps.py
         import os
         import yaml
-        from datetime import datetime
+        from datetime import datetime, timezone
         import git
-        import pytz
 
         def format_timestamp(timestamp):
-            # Parse the timestamp and convert to UTC
-            dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
-            utc_dt = dt.astimezone(pytz.UTC)
-            # Format with the desired timezone offset
-            return utc_dt.astimezone().isoformat()
+            if isinstance(timestamp, str):
+                # If it's already a string, parse it and format
+                dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+            else:
+                # It's a datetime object
+                dt = timestamp
+            return dt.astimezone(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 
         repo = git.Repo('.')
 
@@ -46,9 +47,6 @@ jobs:
 
         for file_path in modified_files:
             if file_path.startswith('recente-artikelen/') and file_path.endswith('.md'):
-                # Get file creation time from git history
-                created_at = repo.git.log('--diff-filter=A', '--format=%aI', '-1', '--', file_path)
-                
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read()
                 
@@ -67,14 +65,16 @@ jobs:
                     print(f"Error parsing YAML in {file_path}: {e}")
                     continue
                 
-                # Update the timestamps
+                # Update createdAt if it doesn't exist
                 if 'createdAt' not in metadata:
-                    metadata['createdAt'] = format_timestamp(created_at.strip() if created_at else datetime.now(pytz.UTC).isoformat())
+                    created_at = repo.git.log('--diff-filter=A', '--format=%aI', '-1', '--', file_path)
+                    metadata['createdAt'] = format_timestamp(created_at.strip() if created_at else datetime.now(timezone.utc))
                 else:
                     # Ensure existing createdAt is in the correct format
                     metadata['createdAt'] = format_timestamp(metadata['createdAt'])
                 
-                metadata['updatedAt'] = format_timestamp(datetime.now(pytz.UTC).isoformat())
+                # Update updatedAt
+                metadata['updatedAt'] = format_timestamp(datetime.now(timezone.utc))
                 
                 # Write the updated content back to the file
                 with open(file_path, 'w', encoding='utf-8') as f:
