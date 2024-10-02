@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install PyYAML gitpython
+        pip install PyYAML gitpython pytz
 
     - name: Update timestamps
       run: |
@@ -30,6 +30,14 @@ jobs:
         import yaml
         from datetime import datetime
         import git
+        import pytz
+
+        def format_timestamp(timestamp):
+            # Parse the timestamp and convert to UTC
+            dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+            utc_dt = dt.astimezone(pytz.UTC)
+            # Format with the desired timezone offset
+            return utc_dt.astimezone().isoformat()
 
         repo = git.Repo('.')
 
@@ -61,9 +69,12 @@ jobs:
                 
                 # Update the timestamps
                 if 'createdAt' not in metadata:
-                    metadata['createdAt'] = created_at.strip() if created_at else datetime.now().isoformat()
+                    metadata['createdAt'] = format_timestamp(created_at.strip() if created_at else datetime.now(pytz.UTC).isoformat())
+                else:
+                    # Ensure existing createdAt is in the correct format
+                    metadata['createdAt'] = format_timestamp(metadata['createdAt'])
                 
-                metadata['updatedAt'] = datetime.now().isoformat()
+                metadata['updatedAt'] = format_timestamp(datetime.now(pytz.UTC).isoformat())
                 
                 # Write the updated content back to the file
                 with open(file_path, 'w', encoding='utf-8') as f:
