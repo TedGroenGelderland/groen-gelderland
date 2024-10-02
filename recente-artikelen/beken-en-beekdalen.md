@@ -3,7 +3,7 @@ title: Beken en beekdalen
 image: beken-en-beekdalen.jpg
 author: dr. RCM (Ralf) Verdonschot
 createdAt: '2024-09-26T10:55:24Z'
-updatedAt: '2024-10-02T17:38:51Z'
+updatedAt: '2024-10-02T17:40:56Z'
 ---
 ### In heel West-Europa zijn beken de afgelopen eeuw rechtgetrokken, vastgelegd, gestuwd en aangepast aan een zo groot en snel mogelijke afvoer van water. Samen met waterverontreiniging heeft dit geleid tot een sterke afname in de ecologische kwaliteit van beken. Wageningen University & Research doet onderzoek aan beken en beekdalen en geeft advies over het beheer en de inrichting ervan.
 
