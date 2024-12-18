@@ -3,7 +3,7 @@ title: Stikstof
 image: stikstof.jpg
 author: JW (Jan Willem) Bol
 createdAt: '2024-10-04T16:23:17Z'
-updatedAt: '2024-10-05T17:44:00Z'
+updatedAt: '2024-12-18T13:40:38Z'
 ---
 ### Stikstof is een voedingsstof voor planten, een essentiële bouwsteen van het leven. Het huidige stikstofprobleem in Nederland wordt veroorzaakt door een hoge depositie van stikstof op natuurgebieden. Wageningen University & Research helpt mee om tot nieuwe oplossingen te komen om uit de huidige stikstof-impasse te komen. Dat doen we vanuit verschillende disciplines: landbouw, economie en natuur.
 

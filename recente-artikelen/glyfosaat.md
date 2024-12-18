@@ -3,7 +3,7 @@ title: Glyfosaat
 image: glyfosaat.jpg
 author: drs. JJPF (Jeroen) Balemans
 createdAt: '2024-10-04T16:23:17Z'
-updatedAt: '2024-10-05T17:44:00Z'
+updatedAt: '2024-12-18T13:40:38Z'
 ---
 ### Zowel in Nederland als andere landen wordt een discussie gevoerd over chemische gewasbeschermingsmiddelen, met glyfosaat in het bijzonder. Voorstanders van een versneld verbod op dit middel wijzen in dit verband op de risico’s van glyfosaat voor mens en milieu. Anderen menen juist dat hiervoor nog nooit keihard bewijs is gevonden. Vergeleken met andere gewasbeschermingsmiddelen zien zij glyfosaat als een middel dat – mits op de juiste wijze en selectief toegepast - op een effectieve en zo duurzaam mogelijke manier bijdraagt aan het beheersen van onkruiden. Ook wijzen ze op het risico van sterk dalende opbrengsten waardoor de voedselzekerheid in gevaar komt.
 

@@ -3,7 +3,7 @@ title: Agrarisch natuurbeheer
 image: agrarisch-natuurbeheer.jpg
 author: prof.dr.ir. D (David) Kleijn
 createdAt: '2024-10-02T16:23:17Z'
-updatedAt: '2024-10-02T17:44:00Z'
+updatedAt: '2024-12-18T13:40:38Z'
 ---
 ### Een groene omgeving heeft veel voordelen. Het heeft een positief effect op de gezondheid van mensen en draagt bij aan de leefbaarheid van een wijk. Bedrijven vestigen zich graag in een groene omgeving en onroerend goed is gewilder, waardoor de economische groei van een stad wordt versterkt. Wageningen University & Research doet samen met partners al jaren onderzoek naar de effecten van groen in de stad.
 
