@@ -1,6 +1,6 @@
 ---
 title: Gezonde voeding, gezond leven
-image: priorities-gezonde-voeding-gezond-levenn.jpg
+image: priorities-gezonde-voeding-gezond-leven.jpg
 link: https://www.wur.nl/nl/onderzoek-resultaten/themas/gezonde-veilige-voeding.htm
 ---
 

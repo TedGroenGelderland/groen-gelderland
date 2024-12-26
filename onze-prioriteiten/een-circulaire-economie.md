@@ -1,6 +1,6 @@
 ---
 title: Een circulaire economie
-image: een-circulaire-economie.jpg
+image: priorities-een-circulaire-economie.jpg
 link: https://www.wur.nl/nl/onderzoek-resultaten/themas/een-circulaire-economie.htm
 ---
 
